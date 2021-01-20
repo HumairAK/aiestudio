@@ -1,10 +1,17 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { spaceId, accessToken } = process.env;
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId,
+        accessToken
+      }
+    }
+  ],
 }
