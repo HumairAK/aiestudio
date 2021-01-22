@@ -5,10 +5,12 @@ import SEO from "../components/seo"
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Menu from '../components/menu/menu'
-import Instagram from '../components/instagram'
+import Testimonials from '../components/testimonials/testimonials'
+import Instagram from '../components/instagram/instagram'
+import About from '../components/about/about'
 import LeafletMap from '../components/leafletMap'
 import Footer from '../components/footer'
-
+import Gallery from '../components/gallery/gallery'
 const IndexPage = ({data}) => {
 
 return (
@@ -18,18 +20,9 @@ return (
       <Img fluid={data.headImage.childImageSharp.fluid} className="hero-image"/>
     </section>
     <section className="container">
-      <span className="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </span>
-      <div className="gallery-grid">
-        <Img fluid={data.latte.childImageSharp.fluid} className="gallery-img1"/>
-        <Img fluid={data.coffeeBags.childImageSharp.fluid} className="gallery-img2"/>
-        <Img fluid={data.coffeePortrait.childImageSharp.fluid} className="gallery-img3"/>
-      </div>
-      <div className="about-grid">
-        <h2>WE'RE CRAZY ABOUT COFFEE</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+      <About />
+      <Gallery />
+      <Testimonials />
     </section>
     <div className="parallax"></div>
     <section className="container">
@@ -61,15 +54,6 @@ export const fluidImage = graphql`
 export const pageQuery = graphql`
   query {
     headImage: file(relativePath: { eq: "header-background.jpg" }) {
-      ...fluidImage
-    }
-    coffeePortrait: file(relativePath: { eq: "coffee-portrait.jpg" }) {
-      ...fluidImage
-    }
-    latte: file(relativePath: { eq: "latte.jpg" }) {
-      ...fluidImage
-    }
-    coffeeBags: file(relativePath: { eq: "coffee-bags.jpg" }) {
       ...fluidImage
     }
   }

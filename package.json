@@ -3,7 +3,7 @@
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "",
   "dependencies": {
     "gatsby": "^2.18.4",
     "gatsby-background-image": "^0.9.7",
@@ -37,13 +37,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby-starter-cafe/node_modules/.bin/gatsby build",
-    "develop": "gatsby-starter-cafe/node_modules/.bin/gatsby develop",
-    "format": "gatsby-starter-cafe/node_modules/.bin/prettier --write \\\"**/*.{js,jsx,json,md}\\\"",
+    "build": "node_modules/.bin/gatsby build",
+    "develop": "node_modules/.bin/gatsby develop",
+    "format": "node_modules/.bin/prettier --write \\\"**/*.{js,jsx,json,md}\\\"",
     "start": "npm run develop",
-    "serve": "gatsby-starter-cafe/node_modules/.bin/gatsby serve",
-    "clean": "gatsby-starter-cafe/node_modules/.bin/gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "serve": "node_modules/.bin/gatsby serve",
+    "clean": "node_modules/.bin/gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "dev": "node_modules/.bin/gatsby develop"
   },
   "repository": {
     "type": "git",
