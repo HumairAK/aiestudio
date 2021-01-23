@@ -13,32 +13,34 @@ import Footer from '../components/footer'
 import Gallery from '../components/gallery/gallery'
 const IndexPage = ({data}) => {
 
-return (
-  <Layout>
-    <SEO title="Home" />
-    <section className="hero">
-      <Img fluid={data.headImage.childImageSharp.fluid} className="hero-image"/>
-    </section>
-    <section className="container">
-      <About />
-      <Gallery />
-      <Testimonials />
-    </section>
-    <div className="parallax"></div>
-    <section className="container">
-      <Menu />
-      <Instagram />
-    </section>
-    {typeof window !== 'undefined' &&
-      <LeafletMap
-        position={[24.8132366,67.0400635]} // Your Coordinates 24.8132366,67.0400635,20z
-        zoom={20} // Zoom Level
-        markerText={"Local Cafe, 65 Park Row"} // Icon text
-      />
-    }
-    <Footer />
-  </Layout>
-  )
+    return (
+        <Layout>
+            <SEO title="Home" />
+            <section className="hero">
+                <Img fluid={data.headImage.childImageSharp.fluid} className="hero-image"/>
+            </section>
+            <section className="container">
+                <About />
+                <Gallery />
+            </section>
+            <section className="container">
+                <Testimonials />
+            </section>
+            <div className="parallax"/>
+            <section className="container">
+                <Menu />
+                <Instagram />
+            </section>
+            {typeof window !== 'undefined' &&
+            <LeafletMap
+                position={[24.8132366,67.0400635]} // Your Coordinates 24.8132366,67.0400635,20z
+                zoom={20} // Zoom Level
+                markerText={"Local Cafe, 65 Park Row"} // Icon text
+            />
+            }
+            <Footer />
+        </Layout>
+    )
 }
 
 export const fluidImage = graphql`
