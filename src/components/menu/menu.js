@@ -27,15 +27,12 @@ query menuQuery {
 
     const [menuCategory, setMenuCategory] = useState(items[0].node.id);
     let selectedNode = items.filter(({ node }) => {return node.id === menuCategory})[0].node;
-
-    console.log(selectedNode)
-    selectedNode.items.map( ( item, idx ) => {
-        console.log(item.toString().split(";"))
-    })
-
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     return (
         <section className="menu">
-            <h2>OUR MENUS</h2>
+            <h2>Services</h2>
             <ul className="menu-headers">
                 {
                     items.map(({ node }) => {
@@ -54,7 +51,7 @@ query menuQuery {
                             return (
                                 <li key={idx} className="menu-item">
                                     <h3>{nameAndPrice[1]}</h3>
-                                    <span>{nameAndPrice[0]}</span>
+                                    <span>{formatNumber(parseInt(nameAndPrice[0]))} Rs</span>
                                 </li>
                             )
                         })
