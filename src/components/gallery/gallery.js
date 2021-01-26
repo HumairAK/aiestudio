@@ -4,22 +4,34 @@ import {useStaticQuery, graphql} from "gatsby";
 
 const Gallery = () => {
   const data = useStaticQuery(graphql`
-  query {
-    coffeePortrait: file(relativePath: { eq: "gallery-3.jpg" }) {
-      ...fluidImage
-    }
-    latte: file(relativePath: { eq: "gallery-1.jpg" }) {
-      ...fluidImage
-    }
-    coffeeBags: file(relativePath: { eq: "gallery-2.jpg" }) {
-      ...fluidImage
+query GalleryQuery {
+  allContentfulPortfolio {
+    edges {
+      node {
+        id
+        image {
+          title
+          fluid {
+            src
+            srcSet
+          }
+        }
+      }
     }
   }
+}
 `);
+  const items = data.allContentfulPortfolio.edges;
+
+  // Here we are doing some string parsing:
+  // So there are classes named "gallery-img2, gallery-img2, and gallery-img3
+  // In contentful we put images with filenames gallery-1, gallery-2, gallery-3
+  // Since JSON does not return these images in order, we use the last char in "gallery-1" to match the appropriate class
+  // This means the images on contentful NEED to be named with a *-# syntax (where it ends with a number between 1-3).
   return <div className="gallery-grid">
-      <Img fluid={data.latte.childImageSharp.fluid} className="gallery-img1"/>
-      <Img fluid={data.coffeeBags.childImageSharp.fluid} className="gallery-img2"/>
-      <Img fluid={data.coffeePortrait.childImageSharp.fluid} className="gallery-img3"/>
+    {items.map(({ node },idx) => {
+    return <Img fluid={node.image[0].fluid} className={"gallery-img" + node.image[0].title.slice(-1)}/>
+  })}
   </div>
 
 }
