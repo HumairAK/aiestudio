@@ -1,10 +1,5 @@
 import React, { useState } from 'react'
-import Breakfast from './breakfast'
-import Lunch from './lunch'
-import HotDrinks from './hot-drinks'
-import ColdDrinks from './cold-drinks'
 import {graphql, useStaticQuery} from "gatsby";
-import hash from 'object-hash'
 
 const Menu = () => {
     const data = useStaticQuery(graphql`
@@ -21,9 +16,6 @@ query menuQuery {
   }
 } `)
     const items = data.allContentfulServices.edges;
-    // items.map(({node}) => {
-    //     console.log(hash(node.name))
-    // })
 
     const [menuCategory, setMenuCategory] = useState(items[0].node.id);
     let selectedNode = items.filter(({ node }) => {return node.id === menuCategory})[0].node;

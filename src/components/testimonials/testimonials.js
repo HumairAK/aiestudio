@@ -19,7 +19,7 @@ query MyQuery {
   `)
   const items = data.allContentfulTestimonials.edges;
 
-  return <section className="menu">
+  return <section className="section-title">
     <h2>SOME TESTIMONIALS</h2>
     {
       items.map(({ node }) => {

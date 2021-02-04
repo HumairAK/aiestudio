@@ -105,6 +105,11 @@ h2 {
       grid-area: p;
     }
   }
+  .section-title{
+    h2 {
+      margin-top: 50px;
+    }
+  }
 }
 .parallax {
   background-image: url('../images/coffee-landscape.jpg');

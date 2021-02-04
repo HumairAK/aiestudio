@@ -20,7 +20,7 @@ query aboutQuery {
   `)
     const items = data.allContentfulAbout.edges;
 
-    return <section className="menu">
+    return <section className="section-title">
 
       {
         items.map(({ node }) => {
