@@ -1,19 +1,45 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {graphql, useStaticQuery} from "gatsby";
 
-const Header = ({ siteTitle }) => (
-  <header>
-    <span>{siteTitle}</span>
-    <span>65 Park Row, EH1 4PE</span>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+const Header = () => {
+    const data = useStaticQuery(graphql`
+        query contactQuery {
+          allContentfulContact {
+            edges {
+              node {
+                socialmedia
+                province
+                phone
+                email
+                city
+                address
+                country
+                title
+                hours
+              }
+            }
+          }
+        }
+  `)
+    const items = data.allContentfulContact.edges;
+    return <header>
+        {
+            items.map(({ node }) => {
+                return (
+                        <span>{node.title}</span>
+                )
+            })
+        }
+        {
+            items.map(({ node }) => {
+                return (
+                    <span>{node.address}, {node.city}, { node.province } </span>
+                )
+            })
+        }
+    </header>
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
