@@ -56,6 +56,9 @@ const Footer = () => {
                       if(sm.includes("instagram")){
                         return <span><a href={sm}>Instagram</a></span>
                       }
+                      else {
+                        return <span/>
+                      }
 
                     })
                   }

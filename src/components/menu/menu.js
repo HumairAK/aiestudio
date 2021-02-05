@@ -27,9 +27,16 @@ query menuQuery {
             <h2>Services</h2>
             <ul className="menu-headers">
                 {
-                    items.map(({ node }) => {
+                    items.map(({ node, i }) => {
                         return (
-                            <li key={node.id} className="menu-header" onClick={() => setMenuCategory(node.id)}>{node.name}</li>
+                            <button
+                                key={node.id}
+                                className="menu-header"
+                                tabIndex={i}
+                                onKeyDown={() => setMenuCategory(node.id)}
+                                onClick={() => setMenuCategory(node.id)}>
+                                {node.name}
+                            </button>
                         )
                     })
                 }
