@@ -1,6 +1,5 @@
 import React from 'react'
 import {graphql, useStaticQuery} from "gatsby";
-import {string} from "prop-types";
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -52,10 +51,10 @@ const Footer = () => {
                   {
                     node.socialmedia.map(( sm ) => {
                       if(sm.includes("facebook")){
-                        return <span>{sm.split(',')[1]}</span>
+                        return <span><a href={sm}>Facebook</a></span>
                       }
                       if(sm.includes("instagram")){
-                        return <span>@{sm.split(',')[1]}</span>
+                        return <span><a href={sm}>Instagram</a></span>
                       }
 
                     })
@@ -66,7 +65,6 @@ const Footer = () => {
           )
         })
       }
-
 
       {/*Footer message*/}
       {
