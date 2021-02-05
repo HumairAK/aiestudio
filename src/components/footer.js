@@ -26,9 +26,10 @@ const Footer = () => {
   return (
     <footer>
       {
-        items.map(({ node }) => {
+        items.map(({ node }, i) => {
           return (
-              <section>
+
+              <section key={i}>
 
                 <div className="address">
                   <h3>WHERE ARE WE?</h3>
@@ -39,8 +40,8 @@ const Footer = () => {
                 <div className="hours">
                   <h3>HOURS</h3>
                   {
-                    node.hours.map(( schedule ) => {
-                      return <span>{schedule}</span>
+                    node.hours.map(( schedule, i ) => {
+                      return <span key={i}>{schedule}</span>
                     })
                   }
                 </div>
@@ -49,15 +50,15 @@ const Footer = () => {
                   <h3>CONTACT</h3>
                   <span>{node.phone}</span>
                   {
-                    node.socialmedia.map(( sm ) => {
+                    node.socialmedia.map(( sm, i ) => {
                       if(sm.includes("facebook")){
-                        return <span><a href={sm}>Facebook</a></span>
+                        return <span key={i}><a href={sm}>Facebook</a></span>
                       }
                       if(sm.includes("instagram")){
-                        return <span><a href={sm}>Instagram</a></span>
+                        return <span key={i}><a href={sm}>Instagram</a></span>
                       }
                       else {
-                        return <span/>
+                        return <span key={i}/>
                       }
 
                     })
@@ -71,15 +72,12 @@ const Footer = () => {
 
       {/*Footer message*/}
       {
-        items.map(({ node }) => {
+        items.map(({ node }, i) => {
           return (
-              <p> {node.footermessage} </p>
+              <p key={i}>{node.footermessage}</p>
           )
         })
       }
-
-
-
     </footer>
   )
 }

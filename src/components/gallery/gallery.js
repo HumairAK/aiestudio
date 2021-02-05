@@ -31,7 +31,7 @@ query GalleryQuery {
   // This means the images on contentful NEED to be named with a *-# syntax (where it ends with a number between 1-3).
   return <div className="gallery-grid">
     {items.map(({ node },idx) => {
-    return <Img fluid={node.image[0].fluid} className={"gallery-img" + node.image[0].title.slice(-1)}/>
+    return <Img key={idx} fluid={node.image[0].fluid} className={"gallery-img" + node.image[0].title.slice(-1)}/>
   })}
   </div>
 

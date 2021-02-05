@@ -24,16 +24,16 @@ const Header = () => {
     const items = data.allContentfulContact.edges;
     return <header>
         {
-            items.map(({ node }) => {
+            items.map(({ node }, i) => {
                 return (
-                        <span>{node.title}</span>
+                        <span key={i}>{node.title}</span>
                 )
             })
         }
         {
-            items.map(({ node }) => {
+            items.map(({ node }, i) => {
                 return (
-                    <span>{node.address}, {node.city}, { node.province } </span>
+                    <span key={i}>{node.address}, {node.city}, { node.province } </span>
                 )
             })
         }

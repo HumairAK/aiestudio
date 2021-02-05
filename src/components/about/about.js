@@ -25,10 +25,10 @@ query aboutQuery {
       {
         items.map(({ node }) => {
           return (
-              <p key={node.content.id} className="menu-item">
+              <div key={node.content.id} className="menu-item">
                 <h2>{node.title}</h2>
                 <span>{node.content.content}</span>
-              </p>
+              </div>
           )
         })
       }

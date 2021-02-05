@@ -26,7 +26,7 @@ query MyQuery {
         return (
             <p key={node.testimonial.id} className="menu-item">
               <span>{node.testimonial.testimonial}</span>
-              <span style={{ 'font-weight': 'bold' }}> ~ {node.client}</span>
+              <span style={{ 'fontWeight': 'bold' }}> ~ {node.client}</span>
             </p>
         )
       })
