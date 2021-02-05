@@ -24,7 +24,7 @@ query GalleryQuery {
   const items = data.allContentfulPortfolio.edges;
 
   // Here we are doing some string parsing:
-  // So there are classes named "gallery-img2, gallery-img2, and gallery-img3
+  // So there are classes named "gallery-img2, gallery-img2, and gallery-imgWarning: Failed prop type: Invalid prop `fluid` supplied to `Image`.3
   // In contentful we put images with filenames gallery-1, gallery-2, gallery-3
   // Since JSON does not return these images in order, we use the last char in "gallery-1" to match the appropriate className
   // The ClassName comes from the starter-cafe template
