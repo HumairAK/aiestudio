@@ -31,6 +31,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -45,7 +46,8 @@
     "serve": "node_modules/.bin/gatsby serve",
     "clean": "node_modules/.bin/gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "dev": "node_modules/.bin/gatsby develop"
+    "dev": "node_modules/.bin/gatsby develop",
+    "deploy": "node_modules/.bin/gatsby build && gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",
