@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: n1hility/cancel-previous-runs@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: enriikke/gatsby-gh-pages-action@v2
         env:
           CONTENTFUL_SPACEID: ${{ secrets.CONTENTFUL_SPACEID }}
