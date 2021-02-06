@@ -12,8 +12,7 @@ query GalleryQuery {
         image {
           title
           fluid {
-            src
-            srcSet
+            ...GatsbyContentfulFluid
           }
         }
       }
