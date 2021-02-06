@@ -14,6 +14,7 @@ jobs:
         env:
           contentful-spaceid: ${{ secrets.CONTENTFUL_SPACEID }}
           contentful-access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          node_env: production
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
