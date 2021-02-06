@@ -17,4 +17,4 @@ jobs:
           NODE_ENV: production
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: master
+          deploy-branch: publish
