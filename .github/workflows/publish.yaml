@@ -12,9 +12,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
         env:
-          contentful-spaceid: ${{ secrets.CONTENTFUL_SPACEID }}
-          contentful-access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          node_env: production
+          CONTENTFUL_SPACEID: ${{ secrets.CONTENTFUL_SPACEID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          NODE_ENV: production
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
