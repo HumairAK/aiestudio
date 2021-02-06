@@ -42,12 +42,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `7368509718`, // Your Instagram
-      },
-    },
-    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
