@@ -11,8 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
-        with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+        env:
           contentful-spaceid: ${{ secrets.CONTENTFUL_SPACEID }}
           contentful-access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
